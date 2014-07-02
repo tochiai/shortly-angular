@@ -18,7 +18,7 @@ module.exports = {
       })
       .then(function (foundUser) {
         if (foundUser) {
-          var token = jwt.encode(foundUser, 'secret');
+          var token = jwt.encode({username: username}, 'secret');
           res.json({token: token});
         }
       })
