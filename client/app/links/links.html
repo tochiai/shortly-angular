@@ -1,4 +1,7 @@
 <div id='container'>
   <!-- Your html here -->
   <h2>Links</h2>
+  <ul>
+    <li ng-repeat='link in data.links'>{{ link.title }} - {{ link.url }}</li>
+  </ul>
 </div>
