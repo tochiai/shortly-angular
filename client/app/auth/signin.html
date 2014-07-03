@@ -4,6 +4,8 @@
     <input name='email' type='email' ng-model='user.username'>
     <input name='password' type="password" ng-model='user.password' required>
     <button ng-disabled='!signinForm.email.$valid || signinForm.password.$error.required'>signin</button>
+    <p ng-show="!signinForm.email.$valid">Please enter valid e-mail address.</p>
+    <p ng-show="signinForm.password.$error.required">Password is a required field.</p>
   </form>
   <a href="#/signup">Don't have an account? Signup ...</a>
 </div>
