@@ -15,7 +15,7 @@ angular.module('shortly.services', [])
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: newLink
+      data: {url: newLink}
     })
     .then(function (resp) {
       return resp.data;
