@@ -3,6 +3,6 @@
   <a href='#/shorten'>Shorten a link</a>
   <h2>Links</h2>
   <ul>
-    <li ng-repeat='link in data.links'>{{ link.title }} - {{ link.url }}</li>
+    <li ng-repeat='link in data.links | orderBy: "-visits"'>{{ link.title }} - {{ link.url }} Visits: {{ link.visits }}</li>
   </ul>
 </div>
