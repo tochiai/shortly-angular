@@ -2,7 +2,8 @@
   <!-- Your html here -->
   <a href='#/shorten'>Shorten a link</a>
   <h2>Links</h2>
+  <input ng-model="searchLinks.url">
   <ul>
-    <li ng-repeat='link in data.links | orderBy: "-visits"'>{{ link.title }} - {{ link.url }} Visits: {{ link.visits }}</li>
+    <li ng-repeat='link in data.links | orderBy: "-visits" | filter: searchLinks:strict'>{{ link.title }} - {{ link.url }} Visits: {{ link.visits }}</li>
   </ul>
 </div>
