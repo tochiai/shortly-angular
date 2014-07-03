@@ -1,5 +1,5 @@
-<div id='signin'>
-  <h1>sigin</h1>
+<div id='signin' ng-controller='AuthController'>
+  <h1>Sign In</h1>
   <form name="signinForm" ng-submit='signin()'>
     <input name='email' type='email' ng-model='user.username'>
     <input name='password' type="password" ng-model='user.password' required>

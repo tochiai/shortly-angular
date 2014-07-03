@@ -3,28 +3,27 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  'ui.router'
 ])
-.config(function($routeProvider, $httpProvider) {
-  $routeProvider
-    .when('/signin', {
-      templateUrl: 'app/auth/signin.html',
-      controller: 'AuthController'
+.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/links")
+
+  $stateProvider
+    .state('signin', {
+      url: "/signin",
+      templateUrl: "app/auth/signin.html"
     })
-    .when('/signup', {
-      templateUrl: 'app/auth/signup.html',
-      controller: 'AuthController'
+    .state('signup', {
+      url: "/signup",
+      templateUrl: "app/auth/signup.html"
     })
-    .when('/links', {
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+    .state('links', {
+      url: "/links",
+      templateUrl: "app/links/links.html"
     })
-    .when('/shorten', {
-      templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
-    })
-    .otherwise({
-      redirectTo: '/links',
+    .state('shorten', {
+      url: "/shorten",
+      templateUrl: "app/shorten/shorten.html"
     });
 
     // We add our $httpInterceptor into the array
