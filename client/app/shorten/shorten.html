@@ -1,9 +1,10 @@
 <div id='container'>
 <!-- Your code here -->
+<a href="#/links">Back to links</a>
 <h2>Shorten</h2>
-  <form ng-submit='addLink()'>
-      <input class='text' type='text' ng-model='link.url'>
-      <input type='submit' value='Shorten'>
+  <form name='shortenForm' ng-submit='addLink()'>
+      <input class='text' name='input' type='url' ng-model='link.url'>
+      <input type='submit' value='Shorten' ng-disabled='!shortenForm.input.$valid'>
   </form>
   <img class='spinner' src='assets/spiffygif_46x46.gif' ng-if="loading">
 </div>
