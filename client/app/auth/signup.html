@@ -1,11 +1,39 @@
-<div id='signup' ng-controller='AuthController'>
-  <h1>signup</h1>
-  <form name="signupForm" ng-submit='signup()'>
-    <input name='email' type='email' ng-model='user.username' ng-focus="user.usernameFocus = true" ng-blur="user.usernameFocus = false">
-    <input name ='password' type="password" ng-model='user.password' ng-focus="user.passwordFocus = true" ng-blur="user.passwordFocus=false" required>
-    <button ng-disabled='!signupForm.email.$valid || signupForm.password.$error.required'>signup</button>
-    <p ng-show="!signupForm.email.$valid && !user.usernameFocus">Please enter valid e-mail address.</p>
-    <p ng-show="signupForm.password.$error.required && !user.passwordFocus">Password is a required field.</p>
-  </form>
-  <a href="#/signin">Already have an account? Signin ...</a>
+<div id="container" ng-controller='AuthController'>
+  <!-- Your html here -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand">Sign up</span>
+      </div>
+
+
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form role="form" name="signupForm" ng-submit='signup()'>
+          <div class='form-group'>
+            <label for="email">Email</label>
+            <input name='email' type='email' ng-model='user.username' ng-focus="user.usernameFocus = true" ng-blur="user.usernameFocus = false">
+          </div>
+          <div class='form-group'>
+            <label for="password">Password</label>
+            <input name ='password' type="password" ng-model='user.password' ng-focus="user.passwordFocus = true" ng-blur="user.passwordFocus=false" required>
+          </div>
+          <button class="btn btn-default" ng-disabled='!signupForm.email.$valid || signupForm.password.$error.required'>signup</button>
+          <p ng-show="!signupForm.email.$valid && !user.usernameFocus">Please enter valid e-mail address.</p>
+          <p ng-show="signupForm.password.$error.required && !user.passwordFocus">Password is a required field.</p>
+        </form>
+      <a href="#/signin">Already have an account? Signin ...</a>
+      </div>
+    </div>
+  </div>
 </div>
