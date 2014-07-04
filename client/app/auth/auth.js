@@ -5,6 +5,7 @@ angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
+  $scope.user.passwordFocus = true; //Used to prevent error from showing before user visits password field.
 
   $scope.signin = function () {
     Auth.signin($scope.user)
