@@ -1,11 +1,11 @@
 <div id='signin' ng-controller='AuthController'>
   <h1>Sign In</h1>
   <form name="signinForm" ng-submit='signin()'>
-    <input name='email' type='email' ng-model='user.username'>
-    <input name='password' type="password" ng-model='user.password' required>
+    <input name='email' type='email' ng-model='user.username' ng-focus="user.usernameFocus = true" ng-blur="user.usernameFocus = false">
+    <input name='password' type="password" ng-model='user.password' ng-focus="user.passwordFocus = true" ng-blur="user.passwordFocus=false" required>
     <button ng-disabled='!signinForm.email.$valid || signinForm.password.$error.required'>signin</button>
-    <p ng-show="!signinForm.email.$valid">Please enter valid e-mail address.</p>
-    <p ng-show="signinForm.password.$error.required">Password is a required field.</p>
+    <p ng-show="!signinForm.email.$valid && !user.usernameFocus">Please enter valid e-mail address.</p>
+    <p ng-show="signinForm.password.$error.required && !user.passwordFocus">Password is a required field.</p>
   </form>
   <a href="#/signup">Don't have an account? Signup ...</a>
 </div>
